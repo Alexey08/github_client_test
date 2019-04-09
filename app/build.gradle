@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.alexey.limitless"
+        applicationId "com.example.alexey.github_client_test"
         minSdkVersion 23
         targetSdkVersion 28
         versionCode 1
@@ -34,4 +34,5 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.0'
+    implementation 'com.android.support:cardview-v7:28.0.0'
 }
