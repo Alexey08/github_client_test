@@ -1,6 +1,8 @@
 package com.example.alexey.github_client_test;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,10 +15,13 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersAdapter.NumberVi
 
     private static int viewHolderCount;
     private int numberItems;
+    private Context context;
+
 
     public NumbersAdapter(int numberofItems){
         numberItems = numberofItems;
         viewHolderCount = 0;
+
     }
 
 
@@ -55,9 +60,28 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersAdapter.NumberVi
 
         public NumberViewHolder(@NonNull View itemView) {
             super(itemView);
+            context = itemView.getContext();
 
             listItemNumberView = itemView.findViewById(R.id.tv_number_item);
             viewHolderIndex = itemView.findViewById(R.id.tv_view_holder_number);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent();
+                    switch (getAdapterPosition()) {
+                        case 0:
+                            intent = new Intent(context, ChildActivity.class);
+                            break;
+
+                        case 1:
+                            intent = new Intent(context, ChildActivity.class);
+                            break;
+                    }
+                    context.startActivity(intent);
+
+                }
+            });
 
         }
 
